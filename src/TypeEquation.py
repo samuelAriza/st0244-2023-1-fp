@@ -5,7 +5,7 @@ class TypeEquation:
 
     def __repr__(self, number):
         if(number == 1):
-            return self.S
+            return type(self.S)
         else:
-            return self.T
+            return type(self.T)
     
