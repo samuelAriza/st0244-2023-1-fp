@@ -21,5 +21,17 @@ class FuncType(DataType):
         self.s = s
         self.t = t
 
-    def __repr__(self):
+    def __repr__(self, number):
+        if(number == 1):
+            return self.s
+        else:
+            return self.t
+        
+    def __acc__(self, number):
+        if(number == 1):
+            return f'{self.s}'
+        else:
+            return f'{self.t}'
+
+    def __str__(self):
         return f"({self.s} -> {self.t})"
