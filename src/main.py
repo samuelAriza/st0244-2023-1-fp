@@ -13,16 +13,16 @@ b = DataType.Bool()
 f = DataType.FuncType(DataType.Bool(), DataType.Nat())
 tq = TypeEquation.TypeEquation(DataType.Var("X"), DataType.Nat())
 
-print(type(v))
+print(v)
 
-print(type(n))
+print(n)
 
-print(type((b)))
+print(b)
 
-print(type(f))
+print(f)
 
-print(type(tq))
-print(type(tq.__repr__(2)))
+print(tq)
+
 
 
 '''print(type(v))

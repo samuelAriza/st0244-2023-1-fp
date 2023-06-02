@@ -3,9 +3,5 @@ class TypeEquation:
         self.S = S
         self.T = T
 
-    def __repr__(self, number):
-        if(number == 1):
-            return self.S
-        else:
-            return self.T
-    
+    def __repr__(self):
+        return f"{self.S} .= {self.T}"
