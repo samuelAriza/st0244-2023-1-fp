@@ -34,4 +34,4 @@ class FuncType(DataType):
             return f'{self.t}'
 
     def __str__(self):
-        return f"({self.s} -> {self.t})"
+        return f"{self.s} → {self.t}"
