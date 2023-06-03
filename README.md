@@ -1,7 +1,7 @@
 # ST0244 Programming Languages
 ## Final Project
 ### Unification
-Implementation of the unification algorithm 
+Implementation of the Unification Algorithm in the Python Programming Language
 
 #### Operating system version
 -  Ubuntu 22.04.2 LTS
