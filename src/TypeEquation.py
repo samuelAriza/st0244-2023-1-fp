@@ -9,14 +9,16 @@ class TypeEquation:
     def __str__(self):
         return f'{self.S} = {self.T}'
 
-    # Returns a string representation of the type equation based on the specified number
+    # Returns a string representation of the type equation based on the 
+    # specified number
     def __repr__(self, number):
         if(number == 1):
             return self.S
         else:
             return self.T
         
-    # Returns an abbreviated string representation of the type equation based on the specified number    
+    # Returns an abbreviated string representation of the type equation based 
+    # on the specified number    
     def __acc__(self, number):
         if(number == 1):
             return f'{self.S}'

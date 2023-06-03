@@ -5,7 +5,8 @@ def get(filename):
     c = []
     with open (filename) as archivo:
         for linea in archivo:
-            c.append(parse_type_equation(linea.replace(' ', '').replace('\n', '')))
+            c.append(parse_type_equation(linea.replace(' ', '')\
+                                         .replace('\n', '')))
     return c
 
 

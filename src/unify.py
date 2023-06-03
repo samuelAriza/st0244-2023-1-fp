@@ -17,7 +17,8 @@ def fv(type_equation, d):
                 if(type(t.__repr__(i)) == DataType.Var):
                     fv.append(t.__repr__(i).name)
 
-        # Checks if the source variable is present in the free variables of the target type
+        # Checks if the source variable is present in the free variables of 
+        # the target type
         for i in range(0, len(fv)):
             if(s.name == fv[i]):
                 flag = True
@@ -31,7 +32,8 @@ def fv(type_equation, d):
                 if(type(s.__repr__(i)) == DataType.Var):
                     fv.append(s.__repr__(i).name)
 
-        # Checks if the target variable is present in the free variables of the source type.
+        # Checks if the target variable is present in the free variables of 
+        # the source type.
         for i in range(0, len(fv)):
             if(t.name == fv[i]):
                 flag = True
@@ -42,38 +44,40 @@ def swap(type_equation, variable, value):
     s = type_equation.__repr__(1)
     t = type_equation.__repr__(2)
 
-    # If the source type is a variable and matches the target variable, swap it with the value.
+    # If the source type is a variable and matches the target variable, 
+    # swap it with the value.
     if(type(s) == DataType.Var and s.name == variable):
         s = value
     elif(type(s) == DataType.FuncType):
         s_ = s.__repr__(1)
         t_ = s.__repr__(2)
 
-        # If the source type is a function type and the first part matches the variable,
-        # swap it with the value.
+        # If the source type is a function type and the first part matches 
+        # the variable,swap it with the value.
         if(type(s_) == DataType.Var and s_.name == variable):
             s_ = value
 
-        # If the source type is a function type and the second part matches the variable, 
-        # swap it with the value.
+        # If the source type is a function type and the second part matches 
+        # the variable, swap it with the value.
         if(type(t_) == DataType.Var and t_.name == variable):
             t_ = value
         s = DataType.FuncType(s_, t_)
     
-    # If the target type is a variable and matches the source variable, swap it with the value.
+    # If the target type is a variable and matches the source variable, 
+    # swap it with the value.
     if(type(t) == DataType.Var and t.name == variable):
         t = value
     elif(type(t) == DataType.FuncType):
         s_ = t.__repr__(1)
         t_ = t.__repr__(2)
 
-        # If the target type is a function type and the first part matches the variable,
-        # swap it with the value.
+        # If the target type is a function type and the first part 
+        # matches the variable, swap it with the value.
         if(type(s_) == DataType.Var and s_.name == variable):
             s_ = value
 
-        # If the target type is a function type and the second part matches the variable,
-        # swap it with the value.
+        # If the target type is a function type and the second part 
+        # matches the variable,swap it with the value.
         if(type(t_) == DataType.Var and t_.name == variable):
             t_ = value
         t = DataType.FuncType(s_, t_)
@@ -95,7 +99,8 @@ def unify(constraint):
             constraint.pop(0)
             unify(constraint)
 
-        # If the source type is a variable and not a free variable in the target type, 
+        # If the source type is a variable and not a free variable in 
+        # the target type, 
         # perform variable substitution.
         elif(type(s) == DataType.Var and fv(first_equation, "t") == False):
             for i in range(0, len(constraint)):
@@ -107,7 +112,8 @@ def unify(constraint):
             constraint.pop(0)
             unify(constraint)
 
-        # If the target type is a variable and not a free variable in the source type,
+        # If the target type is a variable and not a free variable in 
+        # the source type,
         # perform variable substitution.
         elif(type(t) == DataType.Var and fv(first_equation, "s") == False):
             for i in range(0, len(constraint)):

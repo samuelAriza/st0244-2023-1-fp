@@ -6,7 +6,8 @@ import TypeEquation
 # Parses a string representation of a type equation
 def parse_type_equation(string):
     
-    # Split the string representation of the type equation into its left and right sides
+    # Split the string representation of the type equation into its left and 
+    # right sides
     parts = string.split('=')
 
     # Parses the data types from the left and right sides of the equation
@@ -25,7 +26,8 @@ def parse_datatype(datatype_str):
     elif (datatype_str == "Bool"):
         return DataType.Bool()
     
-    # If the string contains the arrow symbol (→), it represents a function type
+    # If the string contains the arrow symbol (→), it represents a function 
+    # type
     elif("→" in datatype_str):
         parts = datatype_str.split('→')
 
@@ -46,8 +48,8 @@ def parse_datatype(datatype_str):
 
         if(len(output) > 1 and len(output[1]) == 2):
 
-            # If there are multiple groups and the second group has two subtypes,
-            # create nested FuncType objects for both groups
+            # If there are multiple groups and the second group has two 
+            # subtypes,create nested FuncType objects for both groups
             s = DataType.FuncType(output[0][0], output[0][1])
             t = DataType.FuncType(output[1][0], output[1][1])
 
@@ -63,6 +65,6 @@ def parse_datatype(datatype_str):
         return DataType.FuncType(s, t)
 
     else:
-
-        # If the string represents a variable type, return a Var object with the variable name
+        # If the string represents a variable type, return a Var object with 
+        # the variable name
         return DataType.Var(datatype_str)

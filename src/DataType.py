@@ -34,7 +34,7 @@ class FuncType(DataType):
         else:
             return self.t
 
-# Accesses the source or target data type of the function type     
+# Accesses the source or target data type of the function type
     def __acc__(self, number):
         if(number == 1):
             return f'{self.s}'
