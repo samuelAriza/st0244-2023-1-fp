@@ -6,7 +6,6 @@ def fv(type_equation, d):
     fv = []
     s = type_equation.__repr__(1)
     t = type_equation.__repr__(2)
-    ['x', 'x']
 
     if (d == "t"):
         if (type(t) != DataType.FuncType and type(t) == DataType.Var):
@@ -96,8 +95,6 @@ def unify(constraint):
             t__ = t.__repr__(2)
             constraint.append(TypeEquation.TypeEquation(s_, t_))
             constraint.append(TypeEquation.TypeEquation(s__, t__))
-            #print(TypeEquation.TypeEquation(s_, t_).__str__())
-            #print(TypeEquation.TypeEquation(s__, t__).__str__())
             constraint.pop(0)
             unify(constraint)
         else:
@@ -106,5 +103,3 @@ def unify(constraint):
                 unify(constraint)
             else:
                 print("The constraint set does not unify.")
-'''p = TypeEquation.TypeEquation(DataType.Var("Y"), DataType.FuncType(DataType.FuncType(DataType.Nat(), DataType.Nat()), DataType.Bool()))
-unify([p])'''

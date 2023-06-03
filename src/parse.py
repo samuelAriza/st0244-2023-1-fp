@@ -1,7 +1,7 @@
 import DataType 
 import TypeEquation
-# →
 
+#→
 
 def parse_type_equation(string):
     parts = string.split('=')
@@ -34,8 +34,6 @@ def parse_datatype(datatype_str):
             t = output[1][0]
 
         return DataType.FuncType(s, t)
-    
 
     else:
         return DataType.Var(datatype_str)
-#print(parse_type_equation("X → Y = Nat → X").__str__())

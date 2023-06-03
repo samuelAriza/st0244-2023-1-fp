@@ -5,10 +5,7 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.txt)
 
 .PHONY: all run-tests test-suite run-all
 
-all: unify.exe
-
-unify.exe: $(SRC_DIR)/main.py
-	$(PYTHON) $(SRC_DIR)/main.py
+all: test-suite
 
 run-tests:
 	$(PYTHON) $(SRC_DIR)/main.py $(TEST_DIR)/cs1.txt
@@ -19,5 +16,3 @@ run-tests:
 
 test-suite:
 	$(foreach file, $(TEST_FILES), $(PYTHON) $(SRC_DIR)/main.py $(file);)
-
-run-all: unify.exe test-suite
