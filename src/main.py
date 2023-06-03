@@ -1,14 +1,8 @@
-import DataType 
-import TypeEquation
+from constraints import get
 from unify import *
+import sys
 
-f = TypeEquation.TypeEquation(DataType.Var("X"), DataType.Nat())
-s = TypeEquation.TypeEquation(DataType.Var("Y"), DataType.FuncType(DataType.Var("X"), DataType.Var("X")))
-n = TypeEquation.TypeEquation(DataType.Var("Y"), DataType.FuncType(DataType.Nat(), DataType.Var("Y")))
-pp = TypeEquation.TypeEquation(DataType.FuncType(DataType.Var("X"), DataType.Var("Y")), DataType.FuncType(DataType.Nat(), DataType.Bool()))
-mm = TypeEquation.TypeEquation(DataType.FuncType(DataType.Var("Y"), DataType.Var("X")), DataType.FuncType(DataType.Bool(), DataType.Nat()))
+constraint = get(sys.argv[1])
+unify(constraint)
 
-
-constraints = [f, s]
-unify(constraints)
 

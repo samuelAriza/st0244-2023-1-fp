@@ -74,9 +74,9 @@ def unify(constraint):
             for i in range(0, len(constraint)):
                 constraint[i] = swap(constraint[i], s.name, t)
             if(type(t) == DataType.FuncType):
-                print(f'{s.name} → {t.__str__()}')
+                print(f'{s.name} ⇾ {t.__repr__(1)} → {t.__repr__(2)}')
             else:
-                print(f'{s.name} → {t.__repr__()}')
+                print(f'{s.name} ⇾ {t.__repr__()}')
             constraint.pop(0)
             unify(constraint)
         elif(type(t) == DataType.Var and fv(first_equation, "s") == False):
@@ -105,4 +105,6 @@ def unify(constraint):
                 constraint.pop(0)
                 unify(constraint)
             else:
-                raise Exception("Unify Fail")
+                print("The constraint set does not unify.")
+'''p = TypeEquation.TypeEquation(DataType.Var("Y"), DataType.FuncType(DataType.FuncType(DataType.Nat(), DataType.Nat()), DataType.Bool()))
+unify([p])'''
