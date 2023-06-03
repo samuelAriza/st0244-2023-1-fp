@@ -28,5 +28,5 @@ run-tests:
 
 # Target to run the entire test suite
 test-suite:
-    # Loop over each test file and run the main.py script on it
+        # Loop over each test file and run the main.py script on it
 	$(foreach file, $(TEST_FILES), $(PYTHON) $(SRC_DIR)/main.py $(file);)
